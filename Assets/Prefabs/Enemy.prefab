@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7406110451409075420}
   - component: {fileID: 8298562426220691734}
-  - component: {fileID: 2651310568756007106}
-  - component: {fileID: 1545176221263402725}
+  - component: {fileID: 4650327448671817448}
+  - component: {fileID: 8417637282844678629}
   m_Layer: 0
   m_Name: Enemy Body
   m_TagString: Enemy
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2651310568756007106
+--- !u!61 &4650327448671817448
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1545176221263402725
+--- !u!114 &8417637282844678629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,9 +157,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8760682165039355011}
   - component: {fileID: 2900217854490994325}
-  - component: {fileID: 3224508268446941961}
-  - component: {fileID: 7508341416945082466}
-  - component: {fileID: 4110310181348060139}
+  - component: {fileID: 6110474152183128836}
+  - component: {fileID: 4418727358382026729}
+  - component: {fileID: 2391835854843892580}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -204,7 +204,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &3224508268446941961
+--- !u!61 &6110474152183128836
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,7 +249,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &7508341416945082466
+--- !u!50 &4418727358382026729
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -257,14 +257,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5522475373088399840}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -276,7 +276,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4110310181348060139
+--- !u!114 &2391835854843892580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

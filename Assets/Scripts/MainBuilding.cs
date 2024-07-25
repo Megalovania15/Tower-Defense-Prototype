@@ -9,6 +9,8 @@ public class MainBuilding : MonoBehaviour
 
     public Slider healthBar;
 
+    public Animator anim;
+
     [SerializeField]
     private int currentHealth;
 
@@ -21,6 +23,7 @@ public class MainBuilding : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         normalColour = sprite.color;
 
@@ -47,6 +50,7 @@ public class MainBuilding : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
+        //anim.SetTrigger("isHit");
         StartCoroutine("FlashWhite");
     }
 

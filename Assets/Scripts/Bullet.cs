@@ -29,24 +29,36 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, bulletLifetime);
     }
 
+    //calculates the amount of damage to deal between the damage range and returns the result
+    int DealRandomDamage()
+    {
+        int damageAmount = Random.Range(damageMin, damageMax);
+
+        return damageAmount;
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {
+            //gets the enemy script component
             var enemyScript = other.gameObject.GetComponent<Enemy>();
 
-            int damageAmount = Random.Range(damageMin, damageMax);
+            //calculates the damage to be done on this collision
+            int damageAmount = DealRandomDamage();
 
+            //spawns the text game object to show the damage done
             GameObject damageVisual = Instantiate(damageTextPrefab, transform.position, Quaternion.identity);
-
-            print(damageVisual.transform.position);
 
             damageText = damageVisual.GetComponentInChildren<TextMeshPro>();
 
+            //updates the text game object to show the amount of damage done
             damageText.text = damageAmount.ToString();
 
+            //enemy takes damage
             enemyScript.TakeDamage(damageAmount);
 
+            //destroys the bullet
             Destroy(gameObject);
         }
     }

@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody2D rb; //if you move the enemy using physics
     private Animator anim; //don't worry about this
-
+   
     private int wpCount = 0; //keeping track of how many waypoints we've been to
 
     // Start is called before the first frame update
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         anim = GetComponent<Animator>();
-        anim.enabled = false;
+        //anim.enabled = false;
 
         mainTarget = GameObject.FindGameObjectWithTag("MainTarget").transform;
 
@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
                     wpCount++;
                 }
             }
-            else //don't worry about this part
+            else
             {
                 currentTarget = mainTarget;
 
@@ -74,14 +74,18 @@ public class Enemy : MonoBehaviour
 
                     rb.velocity = Vector2.zero;
 
-                    anim.enabled = true;
+                    anim.SetBool("isAttacking", true);
+
+                    //anim.enabled = true;
                 }
                
             }
         }
         else 
         {
-            anim.enabled = false;
+            //anim.enabled = false;
+
+            anim.SetBool("isAttacking", false);
 
             rb.velocity = Vector2.zero;
         }
@@ -92,7 +96,7 @@ public class Enemy : MonoBehaviour
     void Move()
     {
         //need to find the direction of the current waypoint by finding the difference
-        //between the current position and the waypoint
+        //between the current position vector and the waypoint vector
 		var moveDir = currentTarget.position - transform.position;
 
         //can find the angle that we're facing using Mathf.Atan2
@@ -108,7 +112,7 @@ public class Enemy : MonoBehaviour
         
         //move the enemy using physics
 		rb.velocity = transform.right * speed;
-        
+
     }
 
     void Death()

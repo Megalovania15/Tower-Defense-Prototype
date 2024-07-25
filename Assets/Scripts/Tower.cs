@@ -6,6 +6,8 @@ public class Tower : MonoBehaviour
 {
     public Transform currentTarget;
 
+    private List<GameObject> targets = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,8 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentTarget = SelectTarget().transform;
+
         if (currentTarget != null)
         {
             var lookPos = currentTarget.position - transform.position;
@@ -25,11 +29,38 @@ public class Tower : MonoBehaviour
         }
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    GameObject SelectTarget()
     {
-        if (other.gameObject.tag == "Enemy")
+        GameObject currentTarget = null;
+
+        if (targets != null)
         {
-            currentTarget = other.gameObject.transform;
+            currentTarget = targets[0];
+
+            foreach (GameObject target in targets)
+            {
+                if (target.GetComponent<Enemy>().health < currentTarget.GetComponent<Enemy>().health)
+                {
+                    currentTarget = target;
+                }
+                else if (Vector3.Distance(transform.position, target.transform.position) <
+                    Vector3.Distance(transform.position, currentTarget.transform.position))
+                {
+                    currentTarget = target;
+                }
+
+            }
+        }
+
+        return currentTarget;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Enemy" && !targets.Contains(other.gameObject))
+        {
+            targets.Add(other.gameObject);
+            //currentTarget = other.gameObject.transform;
         }
     }
 
@@ -37,7 +68,12 @@ public class Tower : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            currentTarget = null;
+            targets.Remove(other.gameObject);
+
+            if (targets.Count == 0)
+            {
+                currentTarget = null;
+            }
         }
     }
 }

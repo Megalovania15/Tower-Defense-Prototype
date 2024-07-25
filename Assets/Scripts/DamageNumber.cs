@@ -9,11 +9,10 @@ public class DamageNumber : MonoBehaviour
 
     public GameObject damageTextContainer;
 
-    private TMP_Text damageText;
-
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame

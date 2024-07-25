@@ -398,6 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 50
   healthBar: {fileID: 0}
+  anim: {fileID: 0}
   currentHealth: 0
 --- !u!1 &108328164
 GameObject:
@@ -1739,6 +1740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5522475373088399840, guid: 64f6879a533cf27439cbe5ebc8e9cbf8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8760682165039355011, guid: 64f6879a533cf27439cbe5ebc8e9cbf8, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2256,7 +2261,7 @@ GameObject:
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1125453245
 Transform:
   m_ObjectHideFlags: 0
@@ -2286,7 +2291,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5522475373088399840, guid: 64f6879a533cf27439cbe5ebc8e9cbf8, type: 3}
   spawnPos: {fileID: 1125453245}
-  spawnCount: 10
+  enemyCount: 0
+  enemiesToSpawn: 10
+  spawnTime: 2
 --- !u!1 &1234199826
 GameObject:
   m_ObjectHideFlags: 0

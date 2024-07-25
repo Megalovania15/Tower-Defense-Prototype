@@ -23,7 +23,9 @@ public class DealDamage : MonoBehaviour
         {
             MainBuilding mainBuilding = other.gameObject.GetComponent<MainBuilding>();
 
-            mainBuilding.TakeDamage(DealRandomDamage());
+            int damageAmount = DealRandomDamage();
+
+            mainBuilding.TakeDamage(damageAmount);
 
             GameObject damageVisual = Instantiate(damageTextPrefab, transform.position, Quaternion.identity);
 
@@ -31,7 +33,7 @@ public class DealDamage : MonoBehaviour
 
             damageText = damageVisual.GetComponentInChildren<TextMeshPro>();
 
-            damageText.text = DealRandomDamage().ToString();
+            damageText.text = damageAmount.ToString();
 
         }
     }
