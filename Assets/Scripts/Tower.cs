@@ -6,6 +6,10 @@ public class Tower : MonoBehaviour
 {
     public Transform currentTarget;
 
+    [SerializeField]
+    private float range;
+
+    [SerializeField]
     private List<GameObject> targets = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -17,7 +21,7 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTarget = SelectTarget().transform;
+        StartCoroutine(ChangeTarget());
 
         if (currentTarget != null)
         {
@@ -42,17 +46,30 @@ public class Tower : MonoBehaviour
                 if (target.GetComponent<Enemy>().health < currentTarget.GetComponent<Enemy>().health)
                 {
                     currentTarget = target;
+                    Debug.Log("new target");
+                    //Debug.Log(target.name + ", health: " + target.GetComponent<Enemy>().health);
                 }
-                else if (Vector3.Distance(transform.position, target.transform.position) <
-                    Vector3.Distance(transform.position, currentTarget.transform.position))
+                /*else if (Vector3.Distance(transform.position, target.transform.position) < range)
                 {
+                    Debug.Log("new target");
                     currentTarget = target;
+                    Debug.Log(target.name + ", distance: " + 
+                        Vector3.Distance(transform.position, target.transform.position));
                 }
+
+                Debug.Log(target.name + ", distance: " +
+                        Vector3.Distance(transform.position, target.transform.position));*/
 
             }
         }
 
         return currentTarget;
+    }
+
+    IEnumerator ChangeTarget()
+    {
+        yield return new WaitForSeconds(0.1f);
+        currentTarget = SelectTarget().transform;
     }
 
     void OnTriggerEnter2D(Collider2D other)

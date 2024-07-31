@@ -294,3 +294,5 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   mainTarget: {fileID: 0}
   waypoints: []
+  minCoin: 10
+  maxCoin: 20

@@ -13,8 +13,12 @@ public class Enemy : MonoBehaviour
 
     public Transform[] waypoints; //we have an array to keep track of our waypoints
 
+    [SerializeField]
+    private int minCoin, maxCoin;
+
     private Rigidbody2D rb; //if you move the enemy using physics
     private Animator anim; //don't worry about this
+    private MoneyTracker moneyTracker;
    
     private int wpCount = 0; //keeping track of how many waypoints we've been to
 
@@ -25,6 +29,8 @@ public class Enemy : MonoBehaviour
 
         anim = GetComponent<Animator>();
         //anim.enabled = false;
+
+        moneyTracker = FindObjectOfType<MoneyTracker>();
 
         mainTarget = GameObject.FindGameObjectWithTag("MainTarget").transform;
 
@@ -119,6 +125,7 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
+            moneyTracker.CollectMoney(minCoin, maxCoin);
             Destroy(gameObject);
         }
     }
