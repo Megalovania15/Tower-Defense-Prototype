@@ -74,7 +74,7 @@ public class Tower : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy" && !targets.Contains(other.gameObject))
+        if (other.gameObject.CompareTag("Enemy") && !targets.Contains(other.gameObject))
         {
             targets.Add(other.gameObject);
             //currentTarget = other.gameObject.transform;
@@ -83,7 +83,7 @@ public class Tower : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.CompareTag("Enemy"))
         {
             targets.Remove(other.gameObject);
 
