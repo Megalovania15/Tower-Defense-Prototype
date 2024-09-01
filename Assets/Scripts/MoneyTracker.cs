@@ -22,9 +22,9 @@ public class MoneyTracker : MonoBehaviour
         
     }
 
-    public void CollectMoney(int min, int max)
+    public void CollectMoney(int moneyAmount)
     {
-        money += Random.Range(min, max);
+        money += moneyAmount;
 
         moneyText.text = "Money: " + money.ToString();
     }

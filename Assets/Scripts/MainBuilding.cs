@@ -51,7 +51,7 @@ public class MainBuilding : MonoBehaviour
     {
         currentHealth -= damageAmount;
         //anim.SetTrigger("isHit");
-        StartCoroutine("FlashWhite");
+        StartCoroutine(FlashWhite());
     }
 
     IEnumerator FlashWhite()

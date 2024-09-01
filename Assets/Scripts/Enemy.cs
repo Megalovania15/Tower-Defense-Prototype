@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Enemy : MonoBehaviour
 {
@@ -8,26 +9,34 @@ public class Enemy : MonoBehaviour
     public int health = 30;
     public float distanceToAttack = 4f;
 
+    public GameObject coinPrefab;
+    public GameObject deathParticle;
+
     public Transform currentTarget; //keep track of the waypoint we're currently moving to
     public Transform mainTarget; //don't worry about this
 
     public Transform[] waypoints; //we have an array to keep track of our waypoints
 
     [SerializeField]
-    private int minCoin, maxCoin;
+    private int moneyValue = 1;
+    private int wpCount = 0; //keeping track of how many waypoints we've been to
 
     private Rigidbody2D rb; //if you move the enemy using physics
     private Animator anim; //don't worry about this
+    private SpriteRenderer sprite;
     private MoneyTracker moneyTracker;
-   
-    private int wpCount = 0; //keeping track of how many waypoints we've been to
 
+    private Color normalColour;
+    private Color hitColour;
+   
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
         anim = GetComponent<Animator>();
+
+        sprite = GetComponentInChildren<SpriteRenderer>();
         //anim.enabled = false;
 
         moneyTracker = FindObjectOfType<MoneyTracker>();
@@ -42,6 +51,9 @@ public class Enemy : MonoBehaviour
         currentTarget = waypoints[0];
 
         anim.SetBool("isAttacking", false);
+
+        normalColour = sprite.color;
+        hitColour = Color.white;
 
     }
 
@@ -125,7 +137,12 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
-            moneyTracker.CollectMoney(minCoin, maxCoin);
+            GameObject floatingCoin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
+            TMP_Text coinText = floatingCoin.GetComponentInChildren<TextMeshPro>();
+            coinText.text = moneyValue.ToString();
+            moneyTracker.CollectMoney(moneyValue);
+            Instantiate(deathParticle, transform.position, Quaternion.identity);
+            Destroy(floatingCoin,5.1f);
             Destroy(gameObject);
         }
     }
@@ -133,9 +150,15 @@ public class Enemy : MonoBehaviour
     //a method to take damage according to damage done, passed in as a parameter
     public void TakeDamage(int damageAmount)
     {
+        StartCoroutine(FlashWhite());
         health -= damageAmount;
     }
 
-   
+    IEnumerator FlashWhite()
+    {
+        sprite.color = hitColour;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = normalColour;
+    }
 }
 
