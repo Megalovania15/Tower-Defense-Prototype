@@ -24,15 +24,16 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         waveText.text = "Wave " + waveCount;
-        StartCoroutine(SpawnEnemy());
 
+        //this starts the coroutine. It can also be started by going StartCoroutine("SpawnEnemy")
+        StartCoroutine(SpawnEnemy());
     }
 
     // Update is called once per frame
     void Update()
     {
         
-
+        
     }
 
     //spawns an enemy after a set amount of time. Enemies spawn in waves. Additional functionality to be
@@ -55,4 +56,13 @@ public class Spawner : MonoBehaviour
         }
         
     }
+
+    //in Coroutines, yield statements can be used to insert a pause into the loop
+    //yield return null = suspends coroutine until the next frame
+    //yield return new WaitForSeconds(float)/WaitForSecondsRealtime(float)
+    //= delays a function for a number of seconds while it's running
+    //yield return new WaitForEndOfFrame() = useful if you want to for example, take a screenshot
+    //essentially waits until after the frame has been rendered. And others..
+    //Coroutine stops automatically after the end of the code, but can also type StopCoroutine()
+    //or StopAllCoroutines()
 }
