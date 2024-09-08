@@ -6,15 +6,26 @@ public class Tower : MonoBehaviour
 {
     public Transform currentTarget;
 
+    public Sprite towerSprite;
+
+    [SerializeField]
+    private int cost;
+
     [SerializeField]
     private float range;
 
     [SerializeField]
     private List<GameObject> targets = new List<GameObject>();
 
+    public int GetCost()
+    {
+        return cost;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        towerSprite = GetComponent<SpriteRenderer>().sprite;
         currentTarget = null;
     }
 
