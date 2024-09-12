@@ -29,23 +29,9 @@ public class ShopInteractions : MonoBehaviour
         Debug.Log("Got the position of the platform");
     }*/
 
-    //purchases the tower associated with the specific button
-    public void PurchaseTower(GameObject associatedTower)
+    public Vector3 GetTowerPos()
     {
-        Instantiate(associatedTower, towerPlacementPos, Quaternion.identity);
-    }
-
-    //displays the price of the tower associated with the specific button
-    public void DisplayTowerPrice(Tower associatedTower)
-    {
-        TMP_Text costDisplay = FindButtonText();
-        costDisplay.text = associatedTower.GetCost().ToString();
-    }
-
-    public TMP_Text FindButtonText()
-    {
-        TMP_Text costDisplay = GetComponentInChildren<TMP_Text>();
-        return costDisplay;
+        return towerPlacementPos;
     }
 
     public void ExitShop()

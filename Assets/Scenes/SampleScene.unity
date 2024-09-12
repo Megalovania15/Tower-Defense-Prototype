@@ -986,6 +986,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopPanel: {fileID: 1404662177}
   shop: {fileID: 1494966039}
+  towerPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!61 &175637340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1725,8 +1728,9 @@ GameObject:
   - component: {fileID: 401417724}
   - component: {fileID: 401417723}
   - component: {fileID: 401417722}
+  - component: {fileID: 401417725}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Basic Tower Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1750,7 +1754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 53.060394, y: -83.003525}
+  m_AnchoredPosition: {x: 40, y: -83.003525}
   m_SizeDelta: {x: 98.3232, y: 63.6227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &401417722
@@ -1797,25 +1801,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1494966038}
-        m_TargetAssemblyTypeName: ShopInteractions, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 401417725}
+        m_TargetAssemblyTypeName: ButtonInteractions, Assembly-CSharp
+        m_MethodName: PurchaseTower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1494966039}
-        m_TargetAssemblyTypeName: ShopInteractions, Assembly-CSharp
-        m_MethodName: PurchaseTower
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 278882760094327324, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1859,6 +1851,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401417720}
   m_CullTransparentMesh: 1
+--- !u!114 &401417725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401417720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85385d6ec6f33b04f9253ad6730cc55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPlacementPos: {x: 0, y: 0, z: 0}
+  associatedTower: {fileID: 278882760094327324, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+  buttonPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1050599942}
+        m_TargetAssemblyTypeName: PlatformInteractions, Assembly-CSharp
+        m_MethodName: PurchaseTower
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  tower: {fileID: 0}
 --- !u!1 &497204018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,6 +2184,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopPanel: {fileID: 1404662177}
   shop: {fileID: 1494966039}
+  towerPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!61 &596112962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3715,6 +3740,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopPanel: {fileID: 1404662177}
   shop: {fileID: 1494966039}
+  towerPrefabs:
+  - {fileID: 278882760094327324, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+  - {fileID: 0}
 --- !u!1 &1118141878
 GameObject:
   m_ObjectHideFlags: 0
@@ -3846,6 +3874,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopPanel: {fileID: 1404662177}
   shop: {fileID: 1494966039}
+  towerPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!61 &1157068352
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4180,7 +4211,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.25}
-  m_SizeDelta: {x: 282.9839, y: 0}
+  m_SizeDelta: {x: 258.1965, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1404662179
 MonoBehaviour:
@@ -4195,7 +4226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.56078434}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4687,6 +4718,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopPanel: {fileID: 1404662177}
   shop: {fileID: 1494966039}
+  towerPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!61 &1517722401
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4966,6 +5000,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopPanel: {fileID: 1404662177}
   shop: {fileID: 1494966039}
+  towerPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!61 &1555970799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5446,6 +5483,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopPanel: {fileID: 1404662177}
   shop: {fileID: 1494966039}
+  towerPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!61 &1764709003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5802,7 +5842,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 230.4, y: -83.004}
+  m_AnchoredPosition: {x: 217.33957, y: -83.004}
   m_SizeDelta: {x: 98.3232, y: 63.6227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1911378411
@@ -6270,7 +6310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 141.49, y: -83.004}
+  m_AnchoredPosition: {x: 128.42958, y: -83.004}
   m_SizeDelta: {x: 98.3232, y: 63.6227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2107016157

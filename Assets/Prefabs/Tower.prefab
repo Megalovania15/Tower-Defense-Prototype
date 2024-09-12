@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
   towerSprite: {fileID: 0}
+  cost: 10
   range: 7
   targets: []
 --- !u!114 &5654663338420660818

@@ -8,6 +8,15 @@ public class PlatformInteractions : MonoBehaviour
 
     public ShopInteractions shop;
 
+    public enum TowerType {
+        Basic,
+        Advanced,
+        Size
+    }
+
+    // Put on shared prefab manager script.
+    public GameObject[] towerPrefabs = new GameObject[(int)TowerType.Size];
+
     private Vector3 platformPosition;
 
     public Vector3 GetPosition()
@@ -30,6 +39,13 @@ public class PlatformInteractions : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void PurchaseTower(int tower)
+    {
+        Instantiate(towerPrefabs[tower], transform.position, Quaternion.identity);
+        //Instantiate(associatedTower, towerPlacementPos, Quaternion.identity);
+        Debug.Log("Tower " + tower + " built");
     }
 
     void OnMouseDown()
