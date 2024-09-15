@@ -8,14 +8,11 @@ public class PlatformInteractions : MonoBehaviour
 
     public ShopInteractions shop;
 
-    public enum TowerType {
-        Basic,
-        Advanced,
-        Size
-    }
+    public TowerManager towerManager;
 
-    // Put on shared prefab manager script.
-    public GameObject[] towerPrefabs = new GameObject[(int)TowerType.Size];
+    public MoneyTracker moneyTracker;
+
+    public bool isSelected = false;
 
     private Vector3 platformPosition;
 
@@ -41,18 +38,29 @@ public class PlatformInteractions : MonoBehaviour
         
     }
 
-    public void PurchaseTower(int tower)
+    //calls the function to build a tower from the list of tower prefabs in the tower manager
+    public void BuildTower(TowerManager.TowerType tower)
     {
-        Instantiate(towerPrefabs[tower], transform.position, Quaternion.identity);
-        //Instantiate(associatedTower, towerPlacementPos, Quaternion.identity);
-        Debug.Log("Tower " + tower + " built");
+        GameObject towerToSpawn = towerManager.towerPrefabs[(int)tower];
+        int cost = towerToSpawn.GetComponent<Tower>().GetCost();
+
+        if (isSelected && moneyTracker.RemoveMoney(cost))
+        {
+            Instantiate(towerToSpawn, transform.position, Quaternion.identity);
+            Debug.Log("Tower " + tower + " built");
+        }
+
+        isSelected = false;
     }
 
+    //when clicking the platform, bring up the shop menu and build the tower when the player clicks on the
+    //button
     void OnMouseDown()
     {
         shopPanel.SetActive(true);
-        ShopInteractions shopInteractions = shop.GetComponent<ShopInteractions>();
+        isSelected = true;
+        /*ShopInteractions shopInteractions = shop.GetComponent<ShopInteractions>();
         shopInteractions.towerPlacementPos = GetPosition();
-        Debug.Log(shopInteractions.towerPlacementPos);
+        Debug.Log(shopInteractions.towerPlacementPos);*/
     }
 }

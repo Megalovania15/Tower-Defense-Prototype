@@ -319,7 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 15
   bulletLifetime: 2.5
-  damageMin: 4
-  damageMax: 8
+  damageMin: 2
+  damageMax: 5
   damageTextPrefab: {fileID: 1010240446864369669, guid: 43b30909dea26b0498d4cbb5b8d9c71d, type: 3}
   damageText: {fileID: 0}

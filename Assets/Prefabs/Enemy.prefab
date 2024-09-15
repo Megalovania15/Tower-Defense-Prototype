@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  health: 50
+  health: 5
   distanceToAttack: 5.4
   coinPrefab: {fileID: 490439123675275290, guid: 8cb1fa6ff58852442a58da4afa1cd827, type: 3}
   deathParticle: {fileID: 2734548633632843708, guid: 12c2d41a6ce7437468f14feb7a8aaa57, type: 3}

@@ -10,23 +10,37 @@ public class ButtonInteractions : MonoBehaviour
 
     public GameObject associatedTower;
 
-    public UnityEvent<Tower> buttonPressed;
+    public UnityEvent<TowerManager.TowerType> buttonPressed;
+
+    public TowerManager.TowerType tower;
 
     private TMP_Text costDisplay;
 
-    public Tower tower;
+    private List<PlatformInteractions> platforms = new List<PlatformInteractions>();
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject[] platformObjects = GameObject.FindGameObjectsWithTag("Platform");
+
+        foreach(GameObject platformObject in platformObjects) 
+        {
+            platforms.Add(platformObject.GetComponent<PlatformInteractions>());
+        }
+
         costDisplay = GetComponentInChildren<TMP_Text>();
         DisplayTowerPrice();
     }
 
     //purchases the tower associated with the specific button
-    public void PurchaseTower()
+    public void BuildTower()
     {
-        buttonPressed.Invoke(tower);
+        foreach (var platform in platforms)
+        {
+            platform.BuildTower(tower);
+        }
+
+        //buttonPressed.Invoke(tower);
         //Instantiate(associatedTower, towerPlacementPos, Quaternion.identity);
 
     }

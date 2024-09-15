@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     public GameObject enemyPrefab;
     public Transform spawnPos;
     public TMP_Text waveText;
+    public TMP_Text waveTimer;
 
     [SerializeField]
     private int enemiesToSpawn = 10;
@@ -24,6 +25,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         waveText.text = "Wave " + waveCount;
+        waveTimer.gameObject.SetActive(false);
 
         //this starts the coroutine. It can also be started by going StartCoroutine("SpawnEnemy")
         StartCoroutine(SpawnEnemy());
@@ -40,29 +42,38 @@ public class Spawner : MonoBehaviour
     //added would be spawning different enemy types at different waves, adding a display of the time to
     //the next wave and increasing the number of enemies spawned based on the current wave for scaling
     //difficulty (may require a formula)
-    IEnumerator SpawnEnemy()
+    IEnumerator SpawnEnemy(float waveTimerTick = 1f)
     {
         while (waveCount <= totalWaves)
         {
+            var temp = timeToNextWave;
+            waveTimer.gameObject.SetActive(false);
+
             for (int i = 0; i <= enemiesToSpawn; i++)
-            {
+            {   
                 Debug.Log("Spawning for wave " + waveCount);
                 Instantiate(enemyPrefab, spawnPos.position, Quaternion.identity);
                 yield return new WaitForSeconds(spawnTime);
             }
             waveCount++;
             waveText.text = "Wave " + waveCount;
-            yield return new WaitForSeconds(timeToNextWave);
+
+            //is a little timer that is used to display a countdown to the next wave
+            while (temp > 0)
+            {
+                waveTimer.gameObject.SetActive(true);
+                temp -= waveTimerTick;
+
+                int seconds = Mathf.FloorToInt(temp % 60);
+                int minutes = Mathf.FloorToInt(temp / 60);
+
+                waveTimer.text = "Next Wave: " + string.Format("{0:00}:{1:00}", minutes, seconds);
+
+                yield return new WaitForSecondsRealtime(waveTimerTick);
+            }
+            
+            //yield return new WaitForSeconds(timeToNextWave);
         }
         
     }
-
-    //in Coroutines, yield statements can be used to insert a pause into the loop
-    //yield return null = suspends coroutine until the next frame
-    //yield return new WaitForSeconds(float)/WaitForSecondsRealtime(float)
-    //= delays a function for a number of seconds while it's running
-    //yield return new WaitForEndOfFrame() = useful if you want to for example, take a screenshot
-    //essentially waits until after the frame has been rendered. And others..
-    //Coroutine stops automatically after the end of the code, but can also type StopCoroutine()
-    //or StopAllCoroutines()
 }
