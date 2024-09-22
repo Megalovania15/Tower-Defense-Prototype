@@ -7,6 +7,7 @@ public class TowerManager : MonoBehaviour
     public enum TowerType
     {
         Basic,
+        FireTower,
         Advanced,
         Size
     }

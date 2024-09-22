@@ -8,6 +8,7 @@ public class DealDamage : MonoBehaviour
     public int damageMin, damageMax;
 
     public GameObject damageTextPrefab;
+    public GameObject deathParticle;
 
     public TMP_Text damageText;
 
@@ -29,11 +30,13 @@ public class DealDamage : MonoBehaviour
 
             GameObject damageVisual = Instantiate(damageTextPrefab, transform.position, Quaternion.identity);
 
-            print(damageVisual.transform.position);
-
             damageText = damageVisual.GetComponentInChildren<TextMeshPro>();
 
             damageText.text = damageAmount.ToString();
+
+            Instantiate(deathParticle, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
 
         }
     }

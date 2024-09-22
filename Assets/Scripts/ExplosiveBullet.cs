@@ -1,26 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-public class Bullet : MonoBehaviour, IBullet
+public class ExplosiveBullet : MonoBehaviour, IBullet
 {
     public float bulletSpeed = 2f;
     public float bulletLifetime = 1f;
 
     [SerializeField]
-    private int damageMin, damageMax;
+    private int minDamage, maxDamage;
+
+    [SerializeField]
+    private float explosionRange;
+
+    [SerializeField]
+    private float explosionLifetime;
 
     public GameObject damageTextPrefab;
+    public GameObject explosionRadiusPrefab;
 
     public TMP_Text damageText;
 
     private Rigidbody2D rb;
-
-    /*public void SetDamage(int _damage)
-    {
-        damage = _damage; 
-    }*/
 
     public void SetTarget(Vector3 position)
     {
@@ -38,7 +40,7 @@ public class Bullet : MonoBehaviour, IBullet
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -47,27 +49,29 @@ public class Bullet : MonoBehaviour, IBullet
         Destroy(gameObject, bulletLifetime);
     }
 
-    //calculates the amount of damage to deal between the damage range and returns the result
     int DealRandomDamage()
     {
-        int damageAmount = Random.Range(damageMin, damageMax);
+        int damageAmount = Random.Range(minDamage, maxDamage);
 
         return damageAmount;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            //gets the enemy script component
-            var enemyScript = other.gameObject.GetComponent<Enemy>();
+            GameObject explosionRadiusObject = Instantiate(explosionRadiusPrefab, other.gameObject.transform.position, Quaternion.identity);
 
-            int damageAmount = DealRandomDamage();
+            Debug.Log("Explosion created");
 
-            //enemy takes damage
-            enemyScript.TakeDamage(damageAmount);
+            ExplosionRadius explosionRadius = explosionRadiusObject.GetComponent<ExplosionRadius>();
 
-            //destroys the bullet
+            explosionRadius.SetExplosionRange(explosionRange);
+
+            explosionRadius.SetExplosionLifetime(explosionLifetime);
+
+            explosionRadius.SetDamage(DealRandomDamage());
+
             Destroy(gameObject);
         }
     }

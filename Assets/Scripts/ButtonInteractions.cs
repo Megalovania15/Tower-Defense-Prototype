@@ -10,7 +10,7 @@ public class ButtonInteractions : MonoBehaviour
 
     public GameObject associatedTower;
 
-    public UnityEvent<TowerManager.TowerType> buttonPressed;
+    //public UnityEvent<TowerManager.TowerType> buttonPressed;
 
     public TowerManager.TowerType tower;
 

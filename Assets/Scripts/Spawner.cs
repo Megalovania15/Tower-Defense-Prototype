@@ -51,7 +51,7 @@ public class Spawner : MonoBehaviour
 
             for (int i = 0; i <= enemiesToSpawn; i++)
             {   
-                Debug.Log("Spawning for wave " + waveCount);
+                //Debug.Log("Spawning for wave " + waveCount);
                 Instantiate(enemyPrefab, spawnPos.position, Quaternion.identity);
                 yield return new WaitForSeconds(spawnTime);
             }

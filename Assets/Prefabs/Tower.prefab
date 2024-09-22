@@ -122,9 +122,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.008212164, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.29469693
 --- !u!50 &4991262391646101454
 Rigidbody2D:
   serializedVersion: 4
@@ -199,11 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1ab186d9822964c98bd4570cd8ac4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTarget: {fileID: 0}
   towerSprite: {fileID: 0}
   cost: 10
-  range: 7
-  targets: []
 --- !u!114 &5654663338420660818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,8 +214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 1
+  range: 0
+  currentTarget: {fileID: 0}
   shootPoint: {fileID: 1369274558935326534}
   bulletPrefab: {fileID: 6451697257531742166, guid: 7946f0dcfeecd614295f314761996556, type: 3}
+  targets: []
 --- !u!1 &4163031552249363830
 GameObject:
   m_ObjectHideFlags: 0

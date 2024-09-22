@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     public GameObject coinPrefab;
     public GameObject deathParticle;
+    public GameObject damageTextPrefab;
 
     public Transform currentTarget; //keep track of the waypoint we're currently moving to
     public Transform mainTarget; //don't worry about this
@@ -22,7 +23,6 @@ public class Enemy : MonoBehaviour
     private int wpCount = 0; //keeping track of how many waypoints we've been to
 
     private Rigidbody2D rb; //if you move the enemy using physics
-    private Animator anim; //don't worry about this
     private SpriteRenderer sprite;
     private MoneyTracker moneyTracker;
 
@@ -34,10 +34,7 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        anim = GetComponent<Animator>();
-
         sprite = GetComponentInChildren<SpriteRenderer>();
-        //anim.enabled = false;
 
         moneyTracker = FindObjectOfType<MoneyTracker>();
 
@@ -49,8 +46,6 @@ public class Enemy : MonoBehaviour
 
         //set the current waypoint target to the first element in the array
         currentTarget = waypoints[0];
-
-        anim.SetBool("isAttacking", false);
 
         normalColour = sprite.color;
         hitColour = Color.white;
@@ -83,28 +78,11 @@ public class Enemy : MonoBehaviour
                 currentTarget = mainTarget;
 
                 Move();
-
-                Debug.Log(Vector2.Distance(currentTarget.position, gameObject.transform.position));
-
-                if (Vector2.Distance(currentTarget.position, gameObject.transform.position) <= distanceToAttack)
-                {
-                    Debug.Log("Building under attack");
-
-                    rb.velocity = Vector2.zero;
-
-                    anim.SetBool("isAttacking", true);
-
-                    //anim.enabled = true;
-                }
                
             }
         }
         else 
         {
-            //anim.enabled = false;
-
-            anim.SetBool("isAttacking", false);
-
             rb.velocity = Vector2.zero;
         }
         
@@ -150,7 +128,14 @@ public class Enemy : MonoBehaviour
     //a method to take damage according to damage done, passed in as a parameter
     public void TakeDamage(int damageAmount)
     {
-        StartCoroutine(FlashWhite());
+        //StartCoroutine(FlashWhite());
+        //spawns the text game object to show the damage done
+        GameObject damageVisual = Instantiate(damageTextPrefab, transform.position, Quaternion.identity);
+
+        TMP_Text damageText = damageVisual.GetComponentInChildren<TextMeshPro>();
+
+        //updates the text game object to show the amount of damage done
+        damageText.text = damageAmount.ToString();
         health -= damageAmount;
     }
 

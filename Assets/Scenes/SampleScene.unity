@@ -1749,7 +1749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefabs:
   - {fileID: 278882760094327324, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
-  - {fileID: 0}
+  - {fileID: 3035417724861923206, guid: 617046b492a0359478a178cb449fe134, type: 3}
 --- !u!1 &401417720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,22 +1899,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPlacementPos: {x: 0, y: 0, z: 0}
   associatedTower: {fileID: 278882760094327324, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
-  buttonPressed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1050599942}
-        m_TargetAssemblyTypeName: PlatformInteractions, Assembly-CSharp
-        m_MethodName: BuildTower
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   tower: 0
+--- !u!1001 &412922330
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 278882760094327324, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+      propertyPath: m_Name
+      value: Tower (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 278882760094327324, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 678975976286970035, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.561521
+      objectReference: {fileID: 0}
+    - target: {fileID: 678975976286970035, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.1599917
+      objectReference: {fileID: 0}
+    - target: {fileID: 678975976286970035, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 678975976286970035, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 678975976286970035, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 678975976286970035, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 678975976286970035, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 678975976286970035, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 678975976286970035, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 678975976286970035, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
 --- !u!1 &497204018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3472,6 +3518,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de99bd5f51a58f14c9ba1531e7e61e54, type: 3}
+--- !u!1001 &981525287
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3035417724861923206, guid: 617046b492a0359478a178cb449fe134, type: 3}
+      propertyPath: m_Name
+      value: FireTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 3035417724861923206, guid: 617046b492a0359478a178cb449fe134, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731448459664250589, guid: 617046b492a0359478a178cb449fe134, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731448459664250589, guid: 617046b492a0359478a178cb449fe134, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731448459664250589, guid: 617046b492a0359478a178cb449fe134, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731448459664250589, guid: 617046b492a0359478a178cb449fe134, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731448459664250589, guid: 617046b492a0359478a178cb449fe134, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731448459664250589, guid: 617046b492a0359478a178cb449fe134, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731448459664250589, guid: 617046b492a0359478a178cb449fe134, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731448459664250589, guid: 617046b492a0359478a178cb449fe134, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731448459664250589, guid: 617046b492a0359478a178cb449fe134, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731448459664250589, guid: 617046b492a0359478a178cb449fe134, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 617046b492a0359478a178cb449fe134, type: 3}
 --- !u!1 &1000616428
 GameObject:
   m_ObjectHideFlags: 0
@@ -3772,17 +3879,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6452353314614174304, guid: 07426277835a16548973c943627aadba, type: 3}
   m_PrefabInstance: {fileID: 2131521425673121974}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1050599942 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7835812743377352510, guid: 07426277835a16548973c943627aadba, type: 3}
-  m_PrefabInstance: {fileID: 2131521425673121974}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4001963000661a140b8144740e78ddd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1118141878
 GameObject:
   m_ObjectHideFlags: 0
@@ -3862,7 +3958,7 @@ MonoBehaviour:
   spawnPos: {fileID: 1125453245}
   waveText: {fileID: 929498522}
   waveTimer: {fileID: 931383507}
-  enemiesToSpawn: 15
+  enemiesToSpawn: 14
   spawnTime: 1
   timeToNextWave: 30
   waveCount: 1
@@ -4213,6 +4309,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1351502756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1351502757}
+  - component: {fileID: 1351502759}
+  - component: {fileID: 1351502758}
+  m_Layer: 5
+  m_Name: Fire Tower Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1351502757
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351502756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2107016156}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000027895, y: 0.000028133}
+  m_SizeDelta: {x: 56.6402, y: 56.64}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1351502758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351502756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 1f73ca565f2ccf341bf5cf41046309e3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1351502759
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351502756}
+  m_CullTransparentMesh: 1
 --- !u!1 &1404662177
 GameObject:
   m_ObjectHideFlags: 0
@@ -6476,8 +6647,9 @@ GameObject:
   - component: {fileID: 2107016159}
   - component: {fileID: 2107016158}
   - component: {fileID: 2107016157}
+  - component: {fileID: 2107016160}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Fire Tower Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6497,6 +6669,7 @@ RectTransform:
   m_Children:
   - {fileID: 1550895086}
   - {fileID: 280365654}
+  - {fileID: 1351502757}
   m_Father: {fileID: 1404662178}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -6547,7 +6720,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2107016158}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2107016160}
+        m_TargetAssemblyTypeName: ButtonInteractions, Assembly-CSharp
+        m_MethodName: BuildTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2107016158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6586,6 +6771,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107016155}
   m_CullTransparentMesh: 1
+--- !u!114 &2107016160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107016155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85385d6ec6f33b04f9253ad6730cc55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPlacementPos: {x: 0, y: 0, z: 0}
+  associatedTower: {fileID: 3035417724861923206, guid: 617046b492a0359478a178cb449fe134, type: 3}
+  tower: 1
 --- !u!1001 &2131521425673121974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6739,3 +6939,5 @@ SceneRoots:
   - {fileID: 380584940}
   - {fileID: 1494966040}
   - {fileID: 1125453245}
+  - {fileID: 981525287}
+  - {fileID: 412922330}
