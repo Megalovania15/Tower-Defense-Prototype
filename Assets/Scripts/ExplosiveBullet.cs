@@ -17,6 +17,10 @@ public class ExplosiveBullet : MonoBehaviour, IBullet
     [SerializeField]
     private float explosionLifetime;
 
+    public ElementTypes.Elements associatedElement;
+
+    public ElementTypes elementTypesScript;
+
     public GameObject damageTextPrefab;
     public GameObject explosionRadiusPrefab;
 
@@ -40,7 +44,7 @@ public class ExplosiveBullet : MonoBehaviour, IBullet
     // Start is called before the first frame update
     void Start()
     {
-
+        explosionRadiusPrefab = elementTypesScript.explosionRadii[(int)associatedElement];
     }
 
     // Update is called once per frame

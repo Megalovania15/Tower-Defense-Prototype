@@ -26,6 +26,11 @@ public class ExplosionRadius : MonoBehaviour
         damage = _damage;
     }
 
+    public void ApplyElementalEffect(GameObject objectInRadius)
+    { 
+        
+    }
+
     void Update()
     {
         Destroy(gameObject, explosionLifetime);
