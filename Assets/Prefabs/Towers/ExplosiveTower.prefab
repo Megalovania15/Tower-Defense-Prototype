@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3549614039482983082}
   - component: {fileID: 2933498606825868402}
   m_Layer: 0
-  m_Name: FireTower
+  m_Name: ExplosiveTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,21 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatusEffect : MonoBehaviour
+public class StatusEffect
 {
-    //To add a status effect to the enemies when walking through or being hit by elemental explosions
-    //or bullets
+    //this is a factory that "produces" the different status effects
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    //select the type of status effect in the inspector
+    public enum Type {
+        None,
+        Fire
     }
 
-    // Update is called once per frame
-    void Update()
+    public static System.Type GetStatusEffect(Type type)
     {
-        
+        switch (type)
+        {
+            case Type.Fire:
+                return typeof(FireEffect);
+            default:
+                throw new ArgumentException("Don't know the type: " + type.ToString());
+        }
     }
 }

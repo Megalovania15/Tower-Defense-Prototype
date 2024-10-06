@@ -44,6 +44,8 @@ public class ExplosiveBullet : MonoBehaviour, IBullet
     // Start is called before the first frame update
     void Start()
     {
+        elementTypesScript = FindObjectOfType<ElementTypes>();
+
         explosionRadiusPrefab = elementTypesScript.explosionRadii[(int)associatedElement];
     }
 
@@ -66,7 +68,7 @@ public class ExplosiveBullet : MonoBehaviour, IBullet
         {
             GameObject explosionRadiusObject = Instantiate(explosionRadiusPrefab, other.gameObject.transform.position, Quaternion.identity);
 
-            Debug.Log("Explosion created");
+            //Debug.Log("Explosion created");
 
             ExplosionRadius explosionRadius = explosionRadiusObject.GetComponent<ExplosionRadius>();
 
