@@ -17,6 +17,8 @@ public class StatusEffect
     {
         switch (type)
         {
+            case Type.None:
+                return null;
             case Type.Fire:
                 return typeof(FireEffect);
             default:

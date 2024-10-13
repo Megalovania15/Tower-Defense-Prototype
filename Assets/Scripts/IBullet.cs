@@ -3,5 +3,5 @@ using System;
 
 public interface IBullet
 {
-	void SetTarget(Vector3 position);
+	void SetTarget(Transform position);
 }

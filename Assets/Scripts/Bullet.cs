@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using static UnityEngine.GraphicsBuffer;
 
 public class Bullet : MonoBehaviour, IBullet
 {
     public float bulletSpeed = 2f;
+    public float rotationSpeed = 1f;
     public float bulletLifetime = 1f;
 
     [SerializeField]
@@ -17,34 +19,51 @@ public class Bullet : MonoBehaviour, IBullet
 
     private Rigidbody2D rb;
 
+    private Transform target;
+
     /*public void SetDamage(int _damage)
     {
         damage = _damage; 
     }*/
 
-    public void SetTarget(Vector3 position)
+    public void SetTarget(Transform _target)
     {
-        var lookPos = position - transform.position;
-
-        float angle = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0, 0, angle);
-
-        rb = GetComponent<Rigidbody2D>();
-
-        rb.velocity = transform.right * bulletSpeed;
+        target = _target;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+
+        rb.velocity = transform.right * bulletSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
         Destroy(gameObject, bulletLifetime);
+    }
+
+    void FixedUpdate()
+    {
+        if (target != null)
+        {
+            FollowTarget();
+        }
+    }
+
+    void FollowTarget()
+    {
+        var lookPos = target.position - transform.position;
+
+        lookPos.Normalize();
+
+        float rotationValue = Vector3.Cross(lookPos, transform.right).z;
+
+        rb.angularVelocity = -rotationValue * rotationSpeed;
+
+        rb.velocity = transform.right * bulletSpeed;
     }
 
     //calculates the amount of damage to deal between the damage range and returns the result

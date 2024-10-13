@@ -58,7 +58,7 @@ public class Shooting : MonoBehaviour
             //finds the script on the bullet so we can tell it what damage it should do
             IBullet bulletScript = bullet.GetComponent<IBullet>();
 
-            bulletScript.SetTarget(currentTarget.position);
+            bulletScript.SetTarget(currentTarget);
             //tells the bullet the damage it should do according to the tower's damage rate
             //bulletScript.SetDamage(DealRandomDamage());
             currentFireTime = fireRate;

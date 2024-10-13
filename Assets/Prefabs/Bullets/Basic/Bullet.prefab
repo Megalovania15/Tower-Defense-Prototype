@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 15
+  rotationSpeed: 900
   bulletLifetime: 2.5
   damageMin: 2
   damageMax: 5

@@ -6,6 +6,7 @@ using UnityEngine;
 public class ExplosiveBullet : MonoBehaviour, IBullet
 {
     public float bulletSpeed = 2f;
+    public float rotationSpeed = 900f;
     public float bulletLifetime = 1f;
 
     [SerializeField]
@@ -26,24 +27,21 @@ public class ExplosiveBullet : MonoBehaviour, IBullet
 
     public TMP_Text damageText;
 
+    private Transform target;
+
     private Rigidbody2D rb;
 
-    public void SetTarget(Vector3 position)
+    public void SetTarget(Transform _target)
     {
-        var lookPos = position - transform.position;
-
-        float angle = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0, 0, angle);
-
-        rb = GetComponent<Rigidbody2D>();
-
-        rb.velocity = transform.right * bulletSpeed;
+        target = _target;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        rb.velocity = transform.right * bulletSpeed;
+
         elementTypesScript = FindObjectOfType<ElementTypes>();
 
         explosionRadiusPrefab = elementTypesScript.explosionRadii[(int)associatedElement];
@@ -53,6 +51,27 @@ public class ExplosiveBullet : MonoBehaviour, IBullet
     void Update()
     {
         Destroy(gameObject, bulletLifetime);
+    }
+
+    void FixedUpdate()
+    {
+        if (target != null)
+        {
+            FollowTarget();
+        }
+    }
+
+    void FollowTarget()
+    {
+        var lookPos = target.position - transform.position;
+
+        lookPos.Normalize();
+
+        float rotationValue = Vector3.Cross(lookPos, transform.right).z;
+
+        rb.angularVelocity = -rotationValue * rotationSpeed;
+
+        rb.velocity = transform.right * bulletSpeed;
     }
 
     int DealRandomDamage()
