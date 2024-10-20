@@ -308,11 +308,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 10
+  rotationSpeed: 900
   bulletLifetime: 1.5
-  minDamage: 1
-  maxDamage: 4
+  minDamage: 3
+  maxDamage: 9
   explosionRange: 5
   explosionLifetime: 0.2
+  associatedElement: 0
+  elementTypesScript: {fileID: 0}
   damageTextPrefab: {fileID: 1010240446864369669, guid: 43b30909dea26b0498d4cbb5b8d9c71d, type: 3}
   explosionRadiusPrefab: {fileID: 1671938591537375324, guid: 08f4b72d8d6bd6841a53c0043c22dcf5, type: 3}
   damageText: {fileID: 0}
